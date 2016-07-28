@@ -56,3 +56,7 @@ rails g model Product title:string description:text ingredients:text unit_price:
 rails g model OrderStatus description:string
 rails g model Order rmk:text sub_total:float tax:float total:float user:references order_status:references
 rails g model OrderItem qty:integer unit_price:float total_price:float order:references product:references
+
+git remote add origin git@github.com:robsonll/celebrazil.git
+
+git remote add heroku https://git.heroku.com/celebrazil.git
