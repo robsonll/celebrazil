@@ -1,0 +1,43 @@
+<div class="brand">CeleBrazil</div>
+<div class="address-bar">440 College St | Toronto, ON M5T 1T3 | 123.456.7890</div>
+
+<%= render 'layouts/navigation' %>
+
+<div class="container">
+
+  <div class="row">
+
+      <div class="box">
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <!--<th><%#= model_class.human_attribute_name(:address) %></th>-->
+            </tr>
+          </thead>
+          <tbody>
+  
+            <% @products.each do |product| %>
+              <tr>
+                <td><%= product.title %></td>
+                <td><%= product.description %></td>
+                <td><%= link_to 'Show', product %></td>
+                <td><%= link_to 'Edit', edit_product_path(product) %></td>
+                <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <br>
+
+        <%= link_to('New Product', new_product_path, :class => 'btn btn-large btn-primary', style: 'color:white')  %>
+
+      </div>
+      
+  </div>
+
+
+</div>
+<!-- /.container -->

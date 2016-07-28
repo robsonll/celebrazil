@@ -1,10 +1,17 @@
-<div class="brand">Business Casual</div>
-<div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
+<div class="brand">CeleBrazil</div>
+<div class="address-bar">440 College St | Toronto, ON M5T 1T3 | 123.456.7890</div>
 
 <%= render 'layouts/navigation' %>
 
 <div class="container">
-
+    <div id="user-widget">
+      <% if current_user %>
+        Welcome <strong><%= current_user.name %> / <%= current_user.email %> / <%= current_user.id %></strong>!
+        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+      <% else %>
+        <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+      <% end %>
+    </div>
     <div class="row">
         <div class="box">
             <div class="col-lg-12 text-center">
@@ -19,13 +26,13 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img class="img-responsive img-full" src="http://ironsummitmedia.github.io/startbootstrap-business-casual/img/slide-1.jpg" alt="">
+                            <img class="img-responsive img-full" src="assets/doces4.jpg" alt="">
                         </div>
                         <div class="item">
-                            <img class="img-responsive img-full" src="http://ironsummitmedia.github.io/startbootstrap-business-casual/img/slide-2.jpg" alt="">
+                            <img class="img-responsive img-full" src="assets/doces3.jpg" alt="">
                         </div>
                         <div class="item">
-                            <img class="img-responsive img-full" src="http://ironsummitmedia.github.io/startbootstrap-business-casual/img/slide-3.jpg" alt="">
+                            <img class="img-responsive img-full" src="assets/doces8.jpg" alt="">
                         </div>
                     </div>
 
@@ -40,26 +47,33 @@
                 <h2 class="brand-before">
                     <small>Welcome to</small>
                 </h2>
-                <h1 class="brand-name">Business Casual</h1>
-                <hr class="tagline-divider">
-                <h2>
-                    <small>By
-                        <strong>Start Bootstrap</strong>
-                    </small>
-                </h2>
+                <h1 class="brand-name">CeleBrazil</h1>
+                <!--<hr class="tagline-divider">-->
+                <!--<h2>-->
+                <!--    <small>By-->
+                <!--        <strong>Start Bootstrap</strong>-->
+                <!--    </small>-->
+                <!--</h2>-->
             </div>
         </div>
     </div>
 
     <div class="row">
         <div class="box">
+            <div
+              class="fb-like"
+              data-share="true"
+              data-width="450"
+              data-show-faces="true">
+            </div>    
+            
             <div class="col-lg-12">
                 <hr>
                 <h2 class="intro-text text-center">Build a website
                     <strong>worth visiting</strong>
                 </h2>
                 <hr>
-                <img class="img-responsive img-border img-left" src="http://ironsummitmedia.github.io/startbootstrap-business-casual/img/intro-pic.jpg" alt="">
+                <img class="img-responsive img-border img-left" src="assets/doces14.jpg" alt="">
                 <hr class="visible-xs">
                 <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
                 <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
@@ -67,7 +81,7 @@
             </div>
         </div>
     </div>
-
+    
     <div class="row">
         <div class="box">
             <div class="col-lg-12">
@@ -89,7 +103,7 @@
 <script>
 $(document).on('ready', function () {
   $('.carousel').carousel({
-      interval: 1000 //changes the speed
+      interval: 4000 //changes the speed
   })
 });
 </script>

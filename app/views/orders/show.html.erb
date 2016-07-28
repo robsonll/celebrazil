@@ -1,0 +1,74 @@
+<div class="brand">CeleBrazil</div>
+<div class="address-bar">440 College St | Toronto, ON M5T 1T3 | 123.456.7890</div>
+
+<%= render 'layouts/navigation' %>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="box">
+
+            <h4>Order Info</h4>
+            <div name="OrderData" class="container">
+              <div class="form-inputs">
+                Order Number:
+                <%= @order.id %>
+              </div>
+  
+              <div class="form-inputs">
+                Client:
+                <%= @order.user.name %>
+              </div>
+  
+              <div class="form-inputs">
+                Order Status:
+                <%= @order.order_status.description %>
+              </div>
+            
+              <div class="form-inputs">
+                Remark:
+                <%= @order.rmk %>
+              </div>
+
+              <div class="form-inputs">
+                Total:
+                <%= number_to_currency(@order.subtotal) %>
+              </div>
+          
+            </div>
+            <br><br>
+            <h4>Order Items</h4>
+            <div name="OrderItems" class="container">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Portion</th>
+                    <th>Quantity</th>
+                    <th>Item Price</th>
+                    <!--<th><%#= model_class.human_attribute_name(:address) %></th>-->
+                  </tr>
+                </thead>
+                <tbody>
+                <% @order.order_items.each do |items| %>
+                  <tr>
+                    <td><%= items.product.title %></td>
+                    <td><%= items.product.portion.description %></td>
+                    <td><%= items.qty %></td>
+                    <td><%= number_to_currency(items.total_price) %></td>
+                  </tr>
+                <% end %>
+                </tbody>
+              </table>
+            </div>          
+
+          <%= link_to('Back to Orders', orders_path, :class => 'btn btn-large btn-primary', style: 'color:white')  %>
+
+        </div>
+        
+    </div>
+
+</div>
+<!-- /.container -->
+

@@ -46,3 +46,13 @@ Credits
 
 License
 -------
+
+
+rails s -b $IP -p $PORT
+sudo service postgresql start           (start no posgresql)
+
+
+rails g model Product title:string description:text ingredients:text unit_price:float min_portion:integer active:boolean image_url:string portion:references
+rails g model OrderStatus description:string
+rails g model Order rmk:text sub_total:float tax:float total:float user:references order_status:references
+rails g model OrderItem qty:integer unit_price:float total_price:float order:references product:references

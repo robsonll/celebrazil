@@ -1,0 +1,87 @@
+<div class="brand">CeleBrazil</div>
+<div class="address-bar">440 College St | Toronto, ON M5T 1T3 | 123.456.7890</div>
+
+<%= render 'layouts/navigation' %>
+
+<div class="container">
+
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center">
+                    <strong>Products Available to Order</strong>
+                </h2>
+                <hr>
+            </div>
+
+            <!--<div class="col-md-6">-->
+            <!--    <img class="img-responsive img-border-left" src="http://ironsummitmedia.github.io/startbootstrap-business-casual/img/slide-2.jpg" alt="">-->
+            <!--</div>-->
+            <div class="col-lg-12 text-center">
+                <p>The products below are available for you to order.</p>
+                <p>Just choose whatever you want and the items will be sent for us.</p>
+                <p>We will get in touch to set the details.</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="box">
+
+          <%= simple_form_for @product, url: products_path do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :product_image, as: :file %>
+          
+            <div class="form-inputs">
+              <%= f.input :title %>
+            </div>
+          
+            <div class="form-inputs">
+              <%= f.input :description %>
+            </div>
+          
+            <div class="form-inputs">
+              <%= f.input :ingredients %>
+            </div>
+          
+            <div class="form-group">
+              <%= f.label :portion.description, :class => 'control-label col-lg-2' %>
+              <div class="col-lg-2">
+                <%= f.collection_select(:portion_id, @portions, :id, :description, include_blank: true) %>
+              </div>
+              <%=f.error_span(:portion_id) %>
+            </div>
+          
+            <div class="form-inputs">
+              <%= f.input :min_portion %>
+            </div>
+          
+            <div class="form-inputs">
+              <%= f.input :unit_price %>
+            </div>
+          
+            <div class="form-actions">
+              <%= f.button :submit %>
+            </div>
+            
+          <% end %>
+
+        </div>
+        
+    </div>
+
+</div>
+<!-- /.container -->
+
+
+
+
+
+
+
+    <!--t.boolean  "active"-->
+    <!--t.integer  "portion_id"-->

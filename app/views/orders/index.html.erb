@@ -1,0 +1,45 @@
+<div class="brand">CeleBrazil</div>
+<div class="address-bar">440 College St | Toronto, ON M5T 1T3 | 123.456.7890</div>
+
+<%= render 'layouts/navigation' %>
+
+<div class="container">
+
+  <div class="row">
+
+      <div class="box">
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Number</th>
+              <th>Client Name</th>
+              <th>Status</th>
+              <th>Total</th>
+              <!--<th><%#= model_class.human_attribute_name(:address) %></th>-->
+            </tr>
+          </thead>
+          <tbody>
+  
+            <% @orders.each do |order| %>
+              <tr>
+                <td><%= order.id %></td>
+                <td><%= order.user.name %></td>
+                <td><%= order.order_status.description %></td>
+                <td><%= number_to_currency(order.subtotal) %></td>
+                <td><%= link_to 'Show', order %></td>
+                <td><%= link_to 'Cancel', order, method: :delete, data: { confirm: 'Are you sure you want to cancel your order ?' } %></td>
+              </tr>
+            <% end %>
+            
+          </tbody>
+        </table>
+
+      </div>
+      
+  </div>
+
+  <!--<%#= link_to 'New', new_product_path %>-->
+
+</div>
+<!-- /.container -->

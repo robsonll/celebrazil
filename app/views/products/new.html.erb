@@ -1,0 +1,62 @@
+<div class="brand">CeleBrazil</div>
+<div class="address-bar">440 College St | Toronto, ON M5T 1T3 | 123.456.7890</div>
+
+<%= render 'layouts/navigation' %>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="box">
+
+          <%= simple_form_for @product, url: products_path do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :product_image, as: :file %>
+          
+            <div class="form-inputs">
+              <%= f.input :title %>
+            </div>
+          
+            <div class="form-inputs">
+              <%= f.input :description %>
+            </div>
+          
+            <div class="form-inputs">
+              <%= f.input :ingredients %>
+            </div>
+          
+            <div class="form-inputs">
+              <%= f.label :portion_id %>
+                <%= f.collection_select(:portion_id, @portions, :id, :description, include_blank: true) %>
+            </div>
+          
+            <div class="form-inputs">
+              <%= f.input :min_portion %>
+            </div>
+          
+            <div class="form-inputs">
+              <%= f.input :unit_price %>
+            </div>
+            
+            <div class="form-inputs">
+              <%= f.label :product_active %>
+              <%= f.collection_radio_buttons :product_active, [[true, 'Yes'] ,[false, 'No']], :first, :last %>
+            </div>
+
+            <div class="form-actions">
+              <%= f.button :submit %>
+            </div>
+            
+          <% end %>
+
+          <%= link_to 'Back', products_path %>
+
+        </div>
+        
+    </div>
+
+</div>
+<!-- /.container -->
+
+    <!--t.boolean  "active"-->
+
