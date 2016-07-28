@@ -9,7 +9,7 @@
 #puts 'CREATED ADMIN USER: ' << user.email
 
 #User.create! name: "Robson", email: "robson.lourenco@gmail.com", admin: true, password: "123456"
-User.create({ :name => "Bob", :email => "robson2.lourenco@gmail.com", :admin => true, :password => "123456" })
+User.create({ :name => "Robson", :email => "robson.lourenco@gmail.com", :admin => true, :password => "123456" })
 
 Portion.delete_all
 Portion.create! description: "Unit"
