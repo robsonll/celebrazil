@@ -60,3 +60,8 @@ rails g model OrderItem qty:integer unit_price:float total_price:float order:ref
 git remote add origin git@github.com:robsonll/celebrazil.git
 
 git remote add heroku https://git.heroku.com/celebrazil.git
+
+-- Heroku
+    production.rb
+      config.assets.compile = true
+      config.assets.digest = true
