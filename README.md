@@ -65,3 +65,9 @@ git remote add heroku https://git.heroku.com/celebrazil.git
     production.rb
       config.assets.compile = true
       config.assets.digest = true
+      config.logger = Logger.new(STDOUT)
+      
+      
+    heroku logs --tail  
+    heroku run rails console  
+      

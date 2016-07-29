@@ -15,6 +15,7 @@ gem 'high_voltage'
 gem 'pg'
 gem 'sendgrid'
 gem 'simple_form'
+gem 'rails_stdout_logging'
 
 group :development, :test do
   gem 'byebug'
