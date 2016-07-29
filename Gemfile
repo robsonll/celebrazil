@@ -16,6 +16,7 @@ gem 'pg'
 gem 'sendgrid'
 gem 'simple_form'
 gem 'rails_stdout_logging'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'byebug'
