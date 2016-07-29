@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
     if current_user.admin?  
         @orders = Order.all.order('id')
     else
-        @orders = Order.where("user_id = (?) and order_status_id <> 4", current_user.id).order('id')
+        @orders = Order.where("user_id = (?) and order_status_id <> 8", current_user.id).order('id')
     end  
     
   end
@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
 
   def destroy
 
-    current_order.update(order_status_id: 4)
+    current_order.update(order_status_id: 8)
     session[:order_id] = nil
     
     respond_to do |format|
@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
 
   def place
 
-    current_order.update(order_status_id: 2)
+    current_order.update(order_status_id: 6)
     session[:order_id] = nil
     
     respond_to do |format|
