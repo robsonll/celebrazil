@@ -40,9 +40,17 @@
             <div class="form-inputs">
               <%= @product.product_active %>
             </div>
-
-          <%= link_to 'Edit', edit_product_path(@product) %> |
-          <%= link_to 'Back', products_path %>
+            
+          <% if user_signed_in? %>
+            <% if current_user.admin? %>
+              <%= link_to('Edit', edit_product_path(@product), :class => 'btn btn-large btn-primary', style: 'color:white') %>
+              <%= link_to('Back', products_path, :class => 'btn btn-large btn-primary', style: 'color:white') %>
+            <% else %>
+              <%= link_to('Back', shop_index_path, :class => 'btn btn-large btn-primary', style: 'color:white') %>
+            <% end %>
+          <% else %>  
+            <%= link_to('Back', visitor_shop_index_path, :class => 'btn btn-large btn-primary', style: 'color:white') %>
+          <% end %>  
 
         </div>
         

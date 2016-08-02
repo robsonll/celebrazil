@@ -13,6 +13,9 @@ class ProductsController < ApplicationController
     @order_item = current_order.order_items.new
   end
 
+  def visitor_shop_index
+    @products = Product.all
+  end
 
   # GET /products/1
   # GET /products/1.json

@@ -25,10 +25,18 @@
               <tr>
                 <td><%= order.id %></td>
                 <td><%= order.user.name %></td>
-                <td><%= order.order_status.description %></td>
+                <td><%= order_status(order.order_status_id) %></td>
                 <td><%= number_to_currency(order.subtotal) %></td>
                 <td><%= link_to 'Show', order %></td>
-                <td><%= link_to 'Cancel', order, method: :delete, data: { confirm: 'Are you sure you want to cancel your order ?' } %></td>
+                <% if current_user.admin? %>
+                  <% if order.order_status_id == 4 %>
+                    <td><%= link_to 'Restore', order_restore_path(order), method: :post, data: { confirm: 'Are you sure you want to restore this order ?' } %></td>
+                  <% else %>
+                    <td><%= link_to 'Cancel', order, method: :delete, data: { confirm: 'Are you sure you want to cancel this order ?' } %></td>
+                  <% end %>
+                <% else %>
+                  <td><%= link_to 'Cancel', order, method: :delete, data: { confirm: 'Are you sure you want to cancel this order ?' } %></td>
+                <% end %>
               </tr>
             <% end %>
             

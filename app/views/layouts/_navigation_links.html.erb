@@ -6,7 +6,11 @@
 <!--    <%#= link_to 'About', page_path('about') %>-->
 <!--</li>-->
 <li>
+<% if user_signed_in? %>
     <%= link_to 'Products', shop_index_path %>
+<% else %>
+    <%= link_to 'Products', visitor_shop_index_path %>
+<% end %>
 </li>
 <li>
     <%= link_to 'Contact', page_path('contact') %>

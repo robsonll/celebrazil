@@ -6,11 +6,13 @@ class ApplicationController < ActionController::Base
   helper_method :current_order
 
   def current_order
-    if !session[:order_id].nil?
-      Order.find(session[:order_id])
-    else
-      Order.new(:user_id => current_user.id)
-    end
+    if user_signed_in?
+      if !session[:order_id].nil?
+        Order.find(session[:order_id])
+      else
+        Order.new(:user_id => current_user.id)
+      end
+    end  
   end
   
 end

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   resources :products
   get 'product/shop_index' => 'products#shop_index', :as => :shop_index
+  get 'product/visitor_shop_index' => 'products#visitor_shop_index', :as => :visitor_shop_index
 
   resource :cart, only: [:show]
   #resources :order, only: [:create, :update, :destroy]
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
 
   #post 'order_items/place' => 'order_items#place', :as => :order_place
   post 'orders/place' => 'orders#place', :as => :order_place
+  post 'orders/:id/restore' => 'orders#restore', :as => :order_restore
 
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin
