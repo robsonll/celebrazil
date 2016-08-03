@@ -1,6 +1,6 @@
 <div class="box">
 
-  <%= form_for @order do |f| %>
+  <%#= form_for @order do |f| %>
   
     <% if @order_items.size == 0 %>
       <p class="text-center">
@@ -17,5 +17,5 @@
       <%= link_to('Back to Products', shop_index_path, :class => 'btn btn-large btn-primary', style: 'color:white')  %>
     </div>
   
-  <% end %>  
+  <%# end %>  
 </div>

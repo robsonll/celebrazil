@@ -24,7 +24,11 @@
             <div class="form-inputs">
               <%= f.input :ingredients %>
             </div>
-          
+            
+            <div class="form-inputs">
+              <%= f.input :directions %>
+            </div>
+
             <div class="form-inputs">
               <%= f.label :portion_id %>
                 <%= f.collection_select(:portion_id, @portions, :id, :description, include_blank: true) %>

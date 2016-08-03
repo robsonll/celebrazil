@@ -6,54 +6,74 @@
 <div class="container">
 
     <div class="row">
+      <div class="box">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <tr>
+              <td colspan=2>
+                <%= image_tag @product.product_image.url(:medium) %>
+              </td>
+            </tr>
+          
+            <tr>
+              <td width="15%"><b>Title:</b></td>
+              <td><%= @product.title %></td>
+            </tr>
+          
+            <tr>
+              <td><b>Description:</b></td>
+              <td><%= @product.description %></td>
+            </tr>
+          
+            <tr>
+              <td><b>Ingredients:</b></td>
+              <td><%= @product.ingredients %></td>
+            </tr>
 
-        <div class="box">
+            <tr>
+              <td><b>Directions:</b></td>
+              <td><%= @product.directions %></td>
+            </tr>
+          
+            <tr>
+              <td><b>Presentation:</b></td>
+              <td><%= @product.portion.description %></td>
+            </tr>
 
-            <div class="form-inputs">
-              <%= image_tag @product.product_image.url(:medium) %>
-            </div>
+            <tr>
+              <td><b>Min Portion:</b></td>
+              <td><%= @product.min_portion %></td>
+            </tr>
           
-            <div class="form-inputs">
-              <%= @product.title %>
-            </div>
+            <tr>
+              <td><b>Unit Price:</b></td>
+              <td><%= @product.unit_price%></td>
+            </tr>
           
-            <div class="form-inputs">
-              <%= @product.description %>
-            </div>
-          
-            <div class="form-inputs">
-              <%= @product.ingredients %>
-            </div>
-          
-            <div class="form-">
-              <%= @product.portion.description %>
-            </div>
-          
-            <div class="form-inputs">
-              <%= @product.min_portion %>
-            </div>
-          
-            <div class="form-inputs">
-              <%= @product.unit_price %>
-            </div>
-          
-            <div class="form-inputs">
-              <%= @product.product_active %>
-            </div>
-            
-          <% if user_signed_in? %>
-            <% if current_user.admin? %>
-              <%= link_to('Edit', edit_product_path(@product), :class => 'btn btn-large btn-primary', style: 'color:white') %>
-              <%= link_to('Back', products_path, :class => 'btn btn-large btn-primary', style: 'color:white') %>
-            <% else %>
-              <%= link_to('Back', shop_index_path, :class => 'btn btn-large btn-primary', style: 'color:white') %>
+            <% if user_signed_in? and current_user.admin? %>
+              <tr>
+                <td><b>Product Active:</b></td>
+                <td><%= @product.product_active %></td>
+              </tr>
             <% end %>
-          <% else %>  
-            <%= link_to('Back', visitor_shop_index_path, :class => 'btn btn-large btn-primary', style: 'color:white') %>
-          <% end %>  
 
+          </table>
+            
+            <br><br>
+            
+            <% if user_signed_in? %>
+              <% if current_user.admin? %>
+                <%= link_to('Edit', edit_product_path(@product), :class => 'btn btn-large btn-primary', style: 'color:white') %>
+                <%= link_to('Back', products_path, :class => 'btn btn-large btn-primary', style: 'color:white') %>
+              <% else %>
+                <%= link_to('Back', shop_index_path, :class => 'btn btn-large btn-primary', style: 'color:white') %>
+              <% end %>
+            <% else %>  
+              <%= link_to('Back', visitor_shop_index_path, :class => 'btn btn-large btn-primary', style: 'color:white') %>
+            <% end %>  
+            
         </div>
-        
+      </div>  
     </div>
 
 </div>

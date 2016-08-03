@@ -37,8 +37,11 @@
         <%= f.password_field :current_password, class: 'form-control' %>
       </div>
     </fieldset>
-    <%= button_to 'Cancel', root_path, :class => 'button left' %>
-    <%= f.submit 'Update', :class => 'button right' %>
+    <div class="form-group">
+      <%#= button_to 'Cancel', root_path, :class => 'button left' %>
+      <%= link_to('Cancel', root_path, :class => 'btn btn-large btn-primary', style: 'color:white') %>
+      <%= f.submit 'Update', :class => 'button right' %>
+    </div>
   <% end %>
 </div>
 <div class="authform">
